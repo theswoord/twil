@@ -48,7 +48,7 @@ void rssam(tlong *longe)
             if (longe->kisma[j][i] == 'C')
             {
                 mlx_put_image_to_window(mlx, window, mlx_xpm_file_to_image(mlx, longe->coin, &img_width, &img_height), i * 32, j * 32);
-                longe->coinsdiali++;
+                // longe->coinsdiali++;
             }
             if (longe->kisma[j][i] == 'E')
             {
@@ -59,7 +59,7 @@ void rssam(tlong *longe)
         i = 0;
         j++;
     }
-    printf("\ncoins :%d", longe->coinsdiali);
+    // printf("\ncoins :%d", longe->coinsdiali);
     // img.img = mlx_new_image(mlx, 800, 600);
     // img.adress = mlx_get_data_addr(img.img, &img.bits, &img.linelenght, &img.end);
 

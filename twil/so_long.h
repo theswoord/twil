@@ -26,6 +26,8 @@ typedef struct slong
     int posy;
     int lines;
     int coinsdiali;
+    int playersdiali;
+    int exitdiali;
 }            tlong;
 // typedef struct simg
 // {
@@ -35,6 +37,9 @@ typedef struct slong
 // }            timg;
 
 void rssam(tlong *longe);
+void ch7almnline(int fd, tlong *longe);
+void checkmap(tlong *longe);
+void errors(int code, tlong*longe );
 // void pixelput(tlong *data, int x, int y, int color);
 
 #endif

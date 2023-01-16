@@ -20,15 +20,35 @@ void ch7almnline(int fd, tlong *longe)
         // free(temp);
         temp = get_next_line(fd);
         longe->lines++;
-
-        a++;
+        // printf("%s",stertwil);
+        // a++;
     }
     longe->kisma = ft_split(stertwil, '\n');
+    // while (longe->kisma[a])
+    // {
+    //     printf("%s\n",longe->kisma[a]);
+    //     a++;
+    // }
+    
     // printf("lines:%d\n", longe->lines);
     // printf("tol :%d\n", longe->tol);
     // printf("%s",longe->kisma[6]);
 }
+void errors(int code, tlong *longe)
+{
 
+    if (code == 1)
+    {
+        write(1, "3ndk mochkil f map check input", 30);
+        free(longe->kisma);
+        exit(0);
+    }
+    if (code == 2)
+    {
+        write(1, "3ndk mochkil f map check tol o l3rd", 35);
+        exit(0);
+    }
+}
 int main(int argc, char **av)
 {
     int fd;
@@ -39,7 +59,8 @@ int main(int argc, char **av)
     {
         fd = open(av[1], O_RDONLY);
         ch7almnline(fd, &longe);
+        checkmap(&longe);
         rssam(&longe);
-        printf("\ncoins :%d", longe.coinsdiali);
+        // printf("\ncoins :%d", longe.coinsdiali);
     }
 }
