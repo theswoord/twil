@@ -1,28 +1,25 @@
 #include "so_long.h"
 
-char **checkmap(tlong *longe)
+void checkmap(tlong *longe)
 {
 
-    char **copycat;
     int a = 0;
     // int a = 0;
     int x = 0;
     int y = 0;
 
-    copycat = longe->kisma;
-
-    while (copycat[a])
+    while (longe->kisma[a])
     {
-        if (ft_strlen(copycat[a]) != longe->tol)
+        if (ft_strlen(longe->kisma[a]) != longe->tol)
         {
-            free(copycat);
+            // free(longe->kisma);
             errors(2, longe);
         }
         a++;
     }
     if (longe->lines != a)
     {
-        free(copycat);
+        // free(longe->kisma);
         errors(2, longe);
     }
 
@@ -30,21 +27,21 @@ char **checkmap(tlong *longe)
     {
         while (x < longe->tol)
         {
-            if (copycat[y][x] == 'P' || copycat[y][x] == '1' || copycat[y][x] == '0' || copycat[y][x] == 'E' || copycat[y][x] == 'C')
+            if (longe->kisma[y][x] == 'P' || longe->kisma[y][x] == '1' || longe->kisma[y][x] == '0' || longe->kisma[y][x] == 'E' || longe->kisma[y][x] == 'C')
             {
 
-                if (copycat[y][x] == 'P')
+                if (longe->kisma[y][x] == 'P')
                 {
                     longe->playersdiali++;
                     longe->posx = x;
                     longe->posy = y;
                 }
-                if (copycat[y][x] == 'C')
+                if (longe->kisma[y][x] == 'C')
                 {
 
                     longe->coinsdiali++;
                 }
-                if (copycat[y][x] == 'E')
+                if (longe->kisma[y][x] == 'E')
                 {
                     longe->exitdiali++;
                 }
@@ -56,7 +53,7 @@ char **checkmap(tlong *longe)
         x = 0;
         y++;
     }
-    printf("\nplayer kayn f [%d][%d]\n", longe->posx, longe->posy);
+    // printf("\nplayer kayn f [%d][%d]\n", longe->posx, longe->posy);
     if (longe->playersdiali != 1 || longe->exitdiali != 1 || longe->coinsdiali == 0)
     {
         printf("P = %d C = %d E = %d", longe->playersdiali, longe->coinsdiali, longe->exitdiali);
@@ -64,30 +61,31 @@ char **checkmap(tlong *longe)
         // free(longe->kisma);
         errors(1, longe);
     }
+    checkwalls(longe);
+    if (path(longe) == 0){
+        errors(4,longe);
+    }
     //  free(copycat);
-    return (copycat);
 }
 void checkwalls(tlong *longe)
 {
 
-    char **copycat;
-    copycat = checkmap(longe);
     int x = 0;
     int y = 0;
 
     while (y < longe->lines)
     {
-        if (copycat[y][0] != '1')
+        if (longe->kisma[y][0] != '1')
             errors(3, longe);
-        if (copycat[y][longe->tol - 1] != '1')
+        if (longe->kisma[y][longe->tol - 1] != '1')
             errors(3, longe);
 
         while (x < longe->tol)
         {
-            if (copycat[0][x] != '1')
+            if (longe->kisma[0][x] != '1')
                 errors(3, longe);
 
-            if (copycat[longe->lines - 1][x] != '1')
+            if (longe->kisma[longe->lines - 1][x] != '1')
                 errors(3, longe);
 
             x++;
@@ -95,4 +93,48 @@ void checkwalls(tlong *longe)
         x = 0;
         y++;
     }
+}
+
+int path(tlong *longe)
+{
+
+    int x = longe->posx;
+    int y = longe->posy;
+    int a;
+    int i;
+    char **visited = malloc(longe->lines * sizeof(char *));
+    while (i < longe->lines)
+    {
+        visited[i] = malloc(longe->tol * sizeof(char));
+        i++;
+    }
+
+    a = safe(x, y, longe, visited);
+    printf("pos nmla [%d] [%d]\n", longe->posx, longe->posy);
+
+    free(visited);
+    return (a);
+}
+
+int safe(int x, int y, tlong *longe, char **visited)
+{
+    if ((longe->kisma[y][x] == '0' || longe->kisma[y][x] == 'C' || longe->kisma[y][x] == 'P' || longe->kisma[y][x] == 'E') && visited[y][x] != 'D')
+    {
+        visited[y][x] = 'D';
+        if (longe->kisma[y][x] == 'E' || longe->kisma[y][x] == 'C')
+        {
+            longe->c++;
+            if (longe->c == longe->coinsdiali + 1)
+                return 1;
+        }
+        if (safe(x, y - 1, longe, visited) == 1)
+            return 1;
+        if (safe(x, y + 1, longe, visited) == 1)
+            return 1;
+        if (safe(x - 1, y, longe, visited) == 1)
+            return 1;
+        if (safe(x + 1, y, longe, visited) == 1)
+            return 1;
+    }
+    return 0;
 }

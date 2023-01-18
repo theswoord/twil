@@ -28,7 +28,7 @@ enum
     DOWN = 125,
     RIGHT = 124,
 
-    ESC = 50,
+    ESC = 53,
 };
 
 typedef struct slong
@@ -59,6 +59,8 @@ typedef struct slong
     int coinsdiali;
     int playersdiali;
     int exitdiali;
+    int c;
+    int pas;
 
 } tlong;
 
@@ -71,7 +73,7 @@ typedef struct slong
 
 void rssam(tlong *longe);
 void ch7almnline(int fd, tlong *longe);
-char **checkmap(tlong *longe);
+void checkmap(tlong *longe);
 void checkwalls(tlong *longe);
 void errors(int code, tlong *longe);
 void drawandmove(tlong *longe);
@@ -85,6 +87,8 @@ void movement7(int pressed, tlong *longe);
 void movement3(int pressed, tlong *longe);
 void movement1(int pressed, tlong *longe);
 int pressedD(int pressed, tlong *longe);
+int safe(int x, int y, tlong *longe, char **visited);
+int path(tlong *longe);
 // void pixelput(tlong *data, int x, int y, int color);
 
 #endif

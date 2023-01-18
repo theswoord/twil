@@ -23,6 +23,11 @@ ${NAME} : ${OBJS}
 clean :
 	${RM} ${OBJS}
 
+good : ${NAME}
+	ar rcs ${NAME} ${OBJS}
+	${RM} ${OBJS}
+
+
 fclean :	clean
 	${RM} ${NAME}
 

@@ -53,11 +53,16 @@ void errors(int code, tlong *longe)
     if (code == 2)
     {
         write(1, "3ndk mochkil f map check tol o l3rd", 35);
-        // free(longe->kisma);
+        free(longe->kisma);
         exit(0);
     }
     if (code == 3){
-        write(1, "3ndk mochkil f map check walls o dawira", 39);
+        write(1, "3ndk mochkil f map check walls o mo7it", 38);
+        free(longe->kisma);
+        exit(0);
+    }
+        if (code == 4){
+        write(1, "not a valid map , there is no valid path", 40);
         free(longe->kisma);
         exit(0);
     }
@@ -65,14 +70,19 @@ void errors(int code, tlong *longe)
 int main(int argc, char **av)
 {
     int fd;
-
+    // int a;
     tlong longe;
 
     if (argc == 2)
     {
         fd = open(av[1], O_RDONLY);
         ch7almnline(fd, &longe);
-        checkwalls(&longe);
+        checkmap(&longe);
+        // while (longe.kisma[a]){
+        // printf("%s\n",longe.kisma[a]);
+        // a++;
+        // }
+        // checkwalls(&longe);
         // checkmap(&longe);
         // printf("player kayn f [%d][%d]", longe.posx, longe.posy);
 
