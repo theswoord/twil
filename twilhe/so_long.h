@@ -78,12 +78,6 @@ typedef struct s_long
     tgame game;
     timg img;
 } t_long;
-// typedef struct simg
-// {
-//     char *img;
-//     int i;
-//     int z;
-// }            timg;
 
 void rssam(t_long *longe);
 void ch7almnline(int fd, t_long *longe);

@@ -81,26 +81,19 @@ void drawandmove(t_long *longe)
         i = 0;
         j++;
     }
-    printf("%d\n", longe->game.coinsdiali);
-    // if(longe->coinsdiali == 0)
-    //     exit(0);
+    // printf("%d\n", longe->game.coinsdiali);
+
 }
 void rssam(t_long *longe)
 {
 
-    // void *player;
-    // char	*path = "./assetF.xpm";
 
-    // int character = 0;
     longe->img.coin = "./coin.XPM";
     longe->img.player = "./player.XPM";
     longe->img.wall = "./wall.XPM";
     longe->img.floor = "./floor.XPM";
     longe->img.exit = "./portal.XPM";
-    // int x = 0;
-    // int y = 0;
-    // int i = 0;
-    // int j = 0;
+
     
     longe->init.mlx = mlx_init();
     longe->img.img1 = mlx_xpm_file_to_image(longe->init.mlx, longe->img.wall, &longe->img.img_width, &longe->img.img_height);
@@ -111,14 +104,6 @@ void rssam(t_long *longe)
     longe->init.win = mlx_new_window(longe->init.mlx, (longe->map.tol * 32), (longe->map.lines * 32), "ft_crawl");
 
     drawandmove(longe);
-    // init.win = mlx_new_window(longe->init.mlx, 480,800, "hahowabda");
-
-    // ft_printf("map.tol %d\n", longe->map.tol);
-    // ft_printf("l3rd %d", longe->map.lines);
-    // ft_printf("%c", longe->map.kisma[1][0]);
-        
-
-    // mlx_key_hook(longe->init.win, pressedD, longe);
     mlx_key_hook(longe->init.win, pressed, longe);
     mlx_loop(longe->init.mlx);
 }
