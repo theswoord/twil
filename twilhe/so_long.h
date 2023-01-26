@@ -50,6 +50,7 @@ typedef struct sgame
 } tgame;
 typedef struct sinit
 {
+    const char* wanted;
     void *mlx;
     void *win;
     void *img;
@@ -84,6 +85,7 @@ void ch7almnline(int fd, t_long *longe);
 void checkmap(t_long *longe);
 void checkwalls(t_long *longe);
 void errors(int code, t_long *longe);
+void errors2(int code, t_long *longe);
 void drawandmove(t_long *longe);
 void movementright(int pressed, t_long *lon);
 void movementup(int pressed, t_long *lon);
@@ -99,5 +101,7 @@ int safe(int x, int y, t_long *longe, char **visited);
 int path(t_long *longe);
 void freeingmachine(char **visited, void *p, t_long *longe);
 // void pixelput(t_long *data, int x, int y, int color);
+void mapread(t_long *longe);
+int toupperv2(int c);
 
 #endif

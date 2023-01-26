@@ -93,7 +93,7 @@ void rssam(t_long *longe)
     longe->img.wall = "./wall.XPM";
     longe->img.floor = "./floor.XPM";
     longe->img.exit = "./portal.XPM";
-
+    
     
     longe->init.mlx = mlx_init();
     longe->img.img1 = mlx_xpm_file_to_image(longe->init.mlx, longe->img.wall, &longe->img.img_width, &longe->img.img_height);
