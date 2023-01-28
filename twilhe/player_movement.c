@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:18:27 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/01/21 22:06:51 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:28:43 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	movementdown(int pressed, t_long *lon)
 				lon->game.posx * 32, lon->game.posy * 32);
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.img0,
 				lon->game.posx * 32, (lon->game.posy + 1) * 32);
-			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgP,
+			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				lon->game.posx * 32, (lon->game.posy + 1) * 32);
 			if (lon->map.kisma[lon->game.posy + 1][lon->game.posx] == 'E')
 				success(lon);
@@ -55,7 +55,7 @@ void	movementup(int pressed, t_long *lon)
 				lon->game.posx * 32, lon->game.posy * 32);
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.img0,
 				lon->game.posx * 32, (lon->game.posy - 1) * 32);
-			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgP,
+			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				lon->game.posx * 32, (lon->game.posy - 1) * 32);
 			if (lon->map.kisma[lon->game.posy - 1][lon->game.posx] == 'E')
 				success(lon);
@@ -82,7 +82,7 @@ void	movementleft(int pressed, t_long *lon)
 				lon->game.posx * 32, lon->game.posy * 32);
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.img0,
 				(lon->game.posx - 1) * 32, lon->game.posy * 32);
-			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgP,
+			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				(lon->game.posx - 1) * 32, lon->game.posy * 32);
 			if (lon->map.kisma[lon->game.posy][lon->game.posx - 1] == 'E')
 				success(lon);
@@ -109,7 +109,7 @@ void	movementright(int pressed, t_long *lon)
 				lon->game.posx * 32, lon->game.posy * 32);
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.img0,
 				(lon->game.posx + 1) * 32, lon->game.posy * 32);
-			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgP,
+			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				(lon->game.posx + 1) * 32, lon->game.posy * 32);
 			if (lon->map.kisma[lon->game.posy][lon->game.posx + 1] == 'E')
 				success(lon);
