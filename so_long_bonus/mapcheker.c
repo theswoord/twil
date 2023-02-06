@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:35:54 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/04 17:22:19 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:13:35 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	mapread(t_long *longe)
 		while (x < longe->map.tol)
 		{
 			if (ft_strchr(longe->init.wanted,
-							(toupperv2(longe->map.kisma[y][x]))) == 0)
+					(toupperv2(longe->map.kisma[y][x]))) == 0)
 				errors(1, longe);
 			if (longe->map.kisma[y][x] == 'P')
 			{

@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:33:30 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/01/28 15:29:02 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 22:41:14 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	movement9(int pressed, t_long *lon)
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				(lon->game.posx + 1) * 32, (lon->game.posy - 1) * 32);
 			if (lon->map.kisma[lon->game.posy - 1][lon->game.posx + 1] == 'E')
-				success(lon);
+				success(1, lon);
 			lon->game.posx++;
 			lon->game.posy--;
 		}
@@ -57,7 +57,7 @@ void	movement7(int pressed, t_long *lon)
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				(lon->game.posx - 1) * 32, (lon->game.posy - 1) * 32);
 			if (lon->map.kisma[lon->game.posy - 1][lon->game.posx - 1] == 'E')
-				success(lon);
+				success(1, lon);
 			lon->game.posx--;
 			lon->game.posy--;
 		}
@@ -83,7 +83,7 @@ void	movement3(int pressed, t_long *lon)
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				(lon->game.posx + 1) * 32, (lon->game.posy + 1) * 32);
 			if (lon->map.kisma[lon->game.posy + 1][lon->game.posx + 1] == 'E')
-				success(lon);
+				success(1, lon);
 			lon->game.posx++;
 			lon->game.posy++;
 		}
@@ -109,7 +109,7 @@ void	movement1(int pressed, t_long *lon)
 			mlx_put_image_to_window(lon->init.mlx, lon->init.win, lon->img.imgp,
 				(lon->game.posx - 1) * 32, (lon->game.posy + 1) * 32);
 			if (lon->map.kisma[lon->game.posy + 1][lon->game.posx - 1] == 'E')
-				success(lon);
+				success(1, lon);
 			lon->game.posx--;
 			lon->game.posy++;
 		}

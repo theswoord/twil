@@ -6,118 +6,70 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:48:51 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/04 16:35:49 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:15:44 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	freeingmachine(char **visited, void *p, t_long *longe)
+void	success(int result, t_long *longe)
 {
-	int	a;
-	int	i;
-
-	a = 0;
-	i = 0;
-	if (visited)
+	if (result == 1)
 	{
-		while (a < longe->map.lines)
-		{
-			free(visited[a]);
-			a++;
-		}
-		free(visited);
+		write(1, "good job you won. wow!", 22);
+		free(longe);
+		exit(0);
 	}
-	if (a < longe->map.lines)
+	if (result == 0)
 	{
-		free(p);
-		a++;
+		thedestroyer(longe);
+		free(longe);
+		exit(0);
 	}
-	return ;
-}
-
-void	success(t_long *longe)
-{
-	write(1, "good job you won. wow!", 22);
-	free(longe);
-	exit(0);
 }
 
 void	errors(int code, t_long *longe)
 {
 	if (code == 1)
-	{
-		write(1, "Error\n3ndk mochkil f map check input", 36);
-		free(longe);
-		exit(0);
-	}
+		ft_printf("Error\n3ndk mochkil f map check input P = %d E = %d C= %d",
+			longe->game.playersdiali, longe->game.exitdiali,
+			longe->game.coinsdiali);
 	if (code == 2)
-	{
 		write(1, "Error\n3ndk mochkil f map, check tol o l3rd", 42);
-		free(longe);
-		exit(0);
-	}
 	if (code == 3)
-	{
 		write(1, "Error\n3ndk mochkil f map, check walls o mo7it", 45);
-		free(longe);
-		exit(0);
-	}
 	if (code == 4)
-	{
 		write(1, "Error\nnot a valid map, there is no valid path", 45);
-		free(longe);
-		exit(0);
-	}
+	thedestroyer(longe);
+	free(longe);
+	exit(1);
 }
 
 void	errors2(int code, t_long *longe)
 {
 	if (code == 1)
-	{
 		write(1, "Error\n3ndk mochkil f arguments, rah ghir 1 li khassna", 53);
-		free(longe);
-		exit(1);
-	}
 	if (code == 2)
-	{
-		write(1, "Error\nfinahya \".ber\" a sadi9", 28);
-		free(longe);
-		exit(1);
-	}
+		write(1, "Error\nFinahya \".ber\" a sadi9", 28);
 	if (code == 3)
-	{
-		write(1, "Error\nyour map ain't working buddy", 34);
-		free(longe);
-		exit(1);
-	}
+		write(1, "Error\nYour map ain't working buddy", 34);
 	if (code == 4)
-	{
 		write(1, "Error\nYour Map khawya a sahbi", 29);
-		free(longe);
-		exit(1);
-	}
 	if (code == 5)
 	{
-		write(1, "Error\nyou have the wrong monsters count", 39);
-		free(longe);
-		exit(1);
+		ft_printf("Error\nYou have the wrong monsters count");
+		ft_printf(": Killer =%d Serpent = %d Tiamat = %d",
+			longe->mon.kdiali, longe->mon.sdiali, longe->mon.tdiali);
 	}
+	thedestroyer(longe);
+	free(longe);
+	exit(1);
 }
-int xpressed(t_long *longe){
+
+int	xpressed(t_long *longe)
+{
 	write(1, "the game exited with the \"x\"", 28);
-		thedestroyer(longe);	
-			free(longe);
-		exit(1);
-		return 0;
-}
-void thedestroyer(t_long *longe){
-	
-	// if (longe->img.img0)
-	// while (1)
-	// {
-	// 	/* code */
-	// }
-	
-		mlx_destroy_image(longe->init.img,longe->img.floor);
+	thedestroyer(longe);
+	free(longe);
+	exit(1);
 }

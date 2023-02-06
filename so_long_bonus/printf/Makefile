@@ -9,6 +9,7 @@ CFLAGS= -Wall -Wextra -Werror
 msa7 = rm -rf
 obj = ${SRC:.c=.o}
 
+.SILENT:
 all : ${NAME}
 
 ${NAME} : ${obj}

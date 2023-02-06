@@ -15,16 +15,17 @@ CFLAGS	= -Wall -Wextra -Werror
 
 RM		= rm -rf
 
+.SILENT:
 all : ${NAME}
 
 ${NAME} : ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+	@ar rcs ${NAME} ${OBJS}
 
 clean :
-	${RM} ${OBJS}
+	@${RM} ${OBJS}
 
 
 fclean :	clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 re : fclean all

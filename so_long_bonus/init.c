@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:09:47 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/04 18:35:00 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:11:35 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	inittiamat(t_long *longe)
 			&longe->img.img_height);
 }
 
-int	animateitmakhleb(t_long *longe)
+int	theclock(t_long *longe)
 {
 	static int	b;
 
@@ -120,24 +120,15 @@ int	animateitmakhleb(t_long *longe)
 	monmov(longe);
 	if (b == 1)
 	{
-          
-            //   mlx_put_image_to_window(longe->init.mlx, longe->init.win, longe->img.img0,16,32);
-        	// mlx_string_put(longe->init.mlx,longe->init.win,16,32,16777215,ft_itoa(longe->game.pas));
-		drawrosom(longe);
-		randommovementk(longe);
-		drawexit(longe);
+		tick1(longe);
 	}
 	if (b == 300)
 	{
-		drawrosom(longe);
-		randommovements(longe);
-		drawexit(longe);
+		tick2(longe);
 	}
 	if (b == 600)
 	{
-		drawrosom(longe);
-		randommovementt(longe);
-		drawexit(longe);
+		tick3(longe);
 		b = 0;
 	}
 	usleep(400);

@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:52:29 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/01/14 23:21:03 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 22:22:34 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		return (0);
 	}
-	if (len > ft_strlen(s))
+	if ((int)len > ft_strlen(s))
 		len = ft_strlen(s);
 	b = 0;
 	test = ft_strlen(s);

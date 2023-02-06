@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:52:27 by nbouhali          #+#    #+#             */
-/*   Updated: 2022/10/26 06:48:21 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 22:23:21 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t	bidaya(const char *phrase, const char *set)
 	{
 		found = 0;
 		j = 0;
-		while (j < ft_strlen(set))
+		while ((int)j < ft_strlen(set))
 		{
 			if (phrase[start] == set[j])
 			{
@@ -52,7 +52,7 @@ static size_t	nihaya(const char *phrase, const char *set)
 	{
 		found = 0;
 		j = 0;
-		while (j < ft_strlen(set))
+		while ((int)j < ft_strlen(set))
 		{
 			if (phrase[finish] == set[j])
 			{

@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:53:00 by nbouhali          #+#    #+#             */
-/*   Updated: 2022/10/26 02:17:38 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 22:21:27 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-size_t	ft_strlen(const char *a);
+int	ft_strlen(const char *a);
 void	ft_bzero(void *s, size_t n);
 int		ft_toupper(int c);
 int		ft_tolower(int c);

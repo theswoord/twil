@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:14:59 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/04 18:21:53 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/06 23:13:16 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **av)
 {
 	int		fd;
 	t_long	*longe;
-	
+
 	longe = (t_long *)malloc(sizeof(t_long));
 	ft_memset(longe, 0, sizeof(t_long));
 	initialization(longe);
