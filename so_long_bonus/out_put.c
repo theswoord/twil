@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:48:51 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/06 23:15:44 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:11:35 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	errors2(int code, t_long *longe)
 	if (code == 5)
 	{
 		ft_printf("Error\nYou have the wrong monsters count");
-		ft_printf(": Killer =%d Serpent = %d Tiamat = %d",
+		ft_printf(": Killer =%d elementalist = %d Tiamat = %d",
 			longe->mon.kdiali, longe->mon.sdiali, longe->mon.tdiali);
 	}
 	thedestroyer(longe);

@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 17:11:14 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/06 23:13:56 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:11:56 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	monmov(t_long *longe)
 	if (longe->mon.possy == longe->game.posy
 		&& longe->mon.possx == longe->game.posx)
 	{
-		ft_printf("Game over\nkilled by the Serpent");
+		ft_printf("Game over\nkilled by the elementalist");
 		success(0, longe);
 	}
 }

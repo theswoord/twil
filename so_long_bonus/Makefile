@@ -9,7 +9,7 @@ SUBDIRS = gnl printf libft
 all:	libs $(NAME) 
 
 	@echo "Work is done !"
-	@echo "are you ready to play the best game in the whole universe ? and avoid the fearsome KILLER , TIAMAT and SERPENT ?"
+	@echo "are you ready to play the best game in the whole universe ? and avoid the fearsome KILLER , TIAMAT and The elementalist ?"
 $(NAME): $(SRC)
 	$(CC) $(SRC) $(CFLAGS) $(libraries) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 

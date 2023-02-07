@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 17:51:56 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/06 22:21:47 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/07 22:35:03 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	a;
+	int		a;
 	char	*mbdla;
 
 	a = 0;
