@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:25:03 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/06 23:20:27 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/07 22:59:12 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,6 @@ void			movementup(t_long *lon);
 void			movementdown(t_long *lon);
 void			movementleft(t_long *lon);
 void			success(int result, t_long *longe);
-void			movement9(int pressed, t_long *lon);
-void			movement7(int pressed, t_long *lon);
-void			movement3(int pressed, t_long *lon);
-void			movement1(int pressed, t_long *lon);
-int				pressedD(int pressed, t_long *longe);
 int				safe(int x, int y, t_long *longe, char **visited);
 int				path(t_long *longe);
 void			freeingmachine(char **visited, void *p, t_long *longe);

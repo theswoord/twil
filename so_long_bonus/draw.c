@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:07:02 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/06 23:03:44 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/07 23:42:48 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	pressed(int pressed, t_long *longe)
 		movementright(longe);
 	}
 	if (pressed == ESC)
-		exit(0);
+		xpressed(longe);
 	return (1);
 }
 
