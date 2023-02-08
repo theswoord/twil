@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:35:54 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/07 23:22:05 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/08 12:28:16 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,9 @@ int	path(t_long *longe)
 int	safe(int x, int y, t_long *longe, char **visited)
 {
 	if ((longe->map.kisma[y][x] == '0' || longe->map.kisma[y][x] == 'C'
-			|| longe->map.kisma[y][x] == 'P' || longe->map.kisma[y][x] == 'E')
-		&& visited[y][x] != 'V')
+			|| longe->map.kisma[y][x] == 'P' || longe->map.kisma[y][x] == 'E'
+			|| longe->map.kisma[y][x] == 'S' || longe->map.kisma[y][x] == 'T'
+			|| longe->map.kisma[y][x] == 'K') && visited[y][x] != 'V')
 	{
 		visited[y][x] = 'V';
 		if (longe->map.kisma[y][x] == 'E' || longe->map.kisma[y][x] == 'C')
