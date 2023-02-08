@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:07:02 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/01/28 19:26:46 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/08 12:34:52 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ int	pressed(int pressed, t_long *longe)
 {
 	if (pressed == NUMUP || pressed == W || pressed == UP)
 	{
-		movementup(pressed, longe);
+		movementup(longe);
 	}
 	if (pressed == NUMDOWN || pressed == S || pressed == DOWN)
 	{
-		movementdown(pressed, longe);
+		movementdown(longe);
 	}
 	if (pressed == NUMLEFT || pressed == A || pressed == LEFT)
 	{
-		movementleft(pressed, longe);
+		movementleft(longe);
 	}
 	if (pressed == NUMRIGHT || pressed == D || pressed == RIGHT)
 	{
-		movementright(pressed, longe);
+		movementright(longe);
 	}
 	if (pressed == ESC)
-		exit(0);
+		xpressed(longe);
 	return (1);
 }
 
@@ -59,6 +59,7 @@ void	rssam(t_long *longe)
 	longe->init.win = mlx_new_window(longe->init.mlx, (longe->map.tol * 32),
 			(longe->map.lines * 32), "ft_crawl");
 	drawandmove(longe);
+	mlx_hook(longe->init.win, 17, 0, xpressed, longe);
 	mlx_key_hook(longe->init.win, pressed, longe);
 	mlx_loop(longe->init.mlx);
 }

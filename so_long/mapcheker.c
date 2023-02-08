@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:35:54 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/01/28 21:41:26 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/08 22:50:19 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,16 +122,7 @@ void	mapread(t_long *longe)
 			if (ft_strchr(longe->init.wanted,
 					(toupperv2(longe->map.kisma[y][x]))) == 0)
 				errors(1, longe);
-			if (longe->map.kisma[y][x] == 'P')
-			{
-				longe->game.playersdiali++;
-				longe->game.posx = x;
-				longe->game.posy = y;
-			}
-			if (longe->map.kisma[y][x] == 'C')
-				longe->game.coinsdiali++;
-			if (longe->map.kisma[y][x] == 'E')
-				longe->game.exitdiali++;
+			contentcounter(longe, &x, &y);
 			x++;
 		}
 		x = 0;

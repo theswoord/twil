@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:25:03 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/01/28 15:30:11 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/08 22:50:35 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 # include "printf/ft_printf.h"
-# include <math.h>
 # include <mlx.h>
 
 enum
@@ -53,6 +52,8 @@ typedef struct s_game
 	int			coinsdiali;
 	int			playersdiali;
 	int			exitdiali;
+	int			posex;
+	int			posey;
 	int			prize;
 	int			pas;
 }				t_game;
@@ -94,16 +95,11 @@ void			checkwalls(t_long *longe);
 void			errors(int code, t_long *longe);
 void			errors2(int code, t_long *longe);
 void			drawandmove(t_long *longe);
-void			movementright(int pressed, t_long *lon);
-void			movementup(int pressed, t_long *lon);
-void			movementdown(int pressed, t_long *lon);
-void			movementleft(int pressed, t_long *lon);
+void			movementright(t_long *lon);
+void			movementup(t_long *lon);
+void			movementdown(t_long *lon);
+void			movementleft(t_long *lon);
 void			success(t_long *longe);
-void			movement9(int pressed, t_long *lon);
-void			movement7(int pressed, t_long *lon);
-void			movement3(int pressed, t_long *lon);
-void			movement1(int pressed, t_long *lon);
-int				pressedD(int pressed, t_long *longe);
 int				safe(int x, int y, t_long *longe, char **visited);
 int				path(t_long *longe);
 void			freeingmachine(char **visited, void *p, t_long *longe);
@@ -111,5 +107,9 @@ void			mapread(t_long *longe);
 int				toupperv2(int c);
 void			initialization(t_long *longe);
 void			actualdraw(int *j, int *i, t_long *longe);
+void			thedestroyer(t_long *longe);
+int				xpressed(t_long *longe);
+void			playerondoor(t_long *longe);
+void			contentcounter(t_long *longe, int *x, int *y);
 
 #endif

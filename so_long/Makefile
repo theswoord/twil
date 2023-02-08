@@ -8,7 +8,7 @@ SUBDIRS = gnl printf libft
 all:	libs $(NAME) 
 
 $(NAME): $(SRC)
-	$(CC) $(SRC) $(libraries) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(SRC) $(libraries) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 libs: $(SUBDIRS)
 	$(foreach dir, $(SUBDIRS), $(MAKE) -C $(dir) all;)
