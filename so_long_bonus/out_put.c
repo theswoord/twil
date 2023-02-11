@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 21:48:51 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/07 23:43:57 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:57:27 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ void	success(int result, t_long *longe)
 	if (result == 1)
 	{
 		write(1, "good job you won. wow!", 22);
+		thedestroyer(longe);
 		freeingmachine(longe->map.kisma, NULL, longe);
-		free(longe);
 		exit(0);
 	}
 	if (result == 0)
 	{
 		thedestroyer(longe);
 		freeingmachine(longe->map.kisma, NULL, longe);
-		free(longe);
 		exit(0);
 	}
 }
@@ -46,9 +45,15 @@ void	errors(int code, t_long *longe)
 	if (code == 5)
 		ft_printf("Error\nyou have a weird letter there , it only includes %s",
 			longe->init.wanted);
+	if (code == 6)
+	{
+		write(1, "Error\nthere is a lot of \"\\n\"", 29);
+		thedestroyer(longe);
+		freethesplitproblem(longe->map.kisma, longe);
+		exit(0);
+	}
 	thedestroyer(longe);
 	freeingmachine(longe->map.kisma, NULL, longe);
-	free(longe);
 	exit(1);
 }
 
@@ -72,7 +77,6 @@ void	errors2(int code, t_long *longe)
 	}
 	thedestroyer(longe);
 	freeingmachine(longe->map.kisma, NULL, longe);
-	free(longe);
 	exit(1);
 }
 
@@ -81,6 +85,23 @@ int	xpressed(t_long *longe)
 	write(1, "the game exited", 15);
 	thedestroyer(longe);
 	freeingmachine(longe->map.kisma, NULL, longe);
-	free(longe);
 	exit(1);
+}
+
+void	freethesplitproblem(char **visited, t_long *longe)
+{
+	int	a;
+	int	i;
+
+	a = 0;
+	i = 0;
+	if (visited)
+	{
+		while (a < longe->map.physicallines)
+		{
+			free(visited[a]);
+			a++;
+		}
+		free(visited);
+	}
 }

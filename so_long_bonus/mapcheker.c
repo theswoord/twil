@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 12:35:54 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/08 12:28:16 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:55:28 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ void	checkmap(t_long *longe)
 	while (longe->map.kisma[a])
 	{
 		if (ft_strlen(longe->map.kisma[a]) != longe->map.tol)
-		{
 			errors(2, longe);
-		}
+		longe->map.physicallines++;
 		a++;
 	}
 	if (longe->map.lines != a)
-		errors(2, longe);
+		errors(6, longe);
 	mapread(longe);
 	if (longe->game.playersdiali != 1 || longe->game.exitdiali != 1
 		|| longe->game.coinsdiali == 0)

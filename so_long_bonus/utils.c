@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:13:56 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/07 23:18:11 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:58:31 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	thedestroyer(t_long *longe)
 	mlx_destroy_image(longe->init.mlx, longe->img.img1);
 	mlx_destroy_image(longe->init.mlx, longe->img.imgp);
 	mlx_destroy_image(longe->init.mlx, longe->img.imgc);
+	if (longe->init.win)
+		mlx_destroy_window(longe->init.mlx, longe->init.win);
 }
 
 void	freeingmachine(char **visited, void *p, t_long *longe)
@@ -96,7 +98,6 @@ void	freeingmachine(char **visited, void *p, t_long *longe)
 		free(p);
 		a++;
 	}
-	return ;
 }
 
 void	drawrosom(t_long *longe)
