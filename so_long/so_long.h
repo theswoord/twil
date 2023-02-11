@@ -6,7 +6,7 @@
 /*   By: nbouhali <nbouhali@student.1337.ma >       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 15:25:03 by nbouhali          #+#    #+#             */
-/*   Updated: 2023/02/08 22:50:35 by nbouhali         ###   ########.fr       */
+/*   Updated: 2023/02/11 23:03:45 by nbouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ typedef struct s_map
 {
 	int			tol;
 	int			lines;
+	int			physicallines;
 	char		**kisma;
+
 }				t_map;
 typedef struct s_game
 {
@@ -111,5 +113,5 @@ void			thedestroyer(t_long *longe);
 int				xpressed(t_long *longe);
 void			playerondoor(t_long *longe);
 void			contentcounter(t_long *longe, int *x, int *y);
-
+void			freethesplitproblem(char **visited, t_long *longe);
 #endif
